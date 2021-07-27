@@ -1,10 +1,14 @@
 import React from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Header from './Header';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      App
-    </div>
+    <BrowserRouter>
+        <Switch>
+          <Header />
+        </Switch>
+    </BrowserRouter>
   );
 }
 
