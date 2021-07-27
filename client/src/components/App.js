@@ -1,14 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
-import Header from './Header';
+// import { Route } from 'react-router-dom';
+import Layout from './Layout';
 
 const App = () => {
   return (
-    <BrowserRouter>
-        <Switch>
-          <Header />
-        </Switch>
-    </BrowserRouter>
+    <Layout >
+      {/* place routes here */}
+      {/* <Route path='/' exact><Screen /></Route> */}
+    </Layout>
   );
 }
 

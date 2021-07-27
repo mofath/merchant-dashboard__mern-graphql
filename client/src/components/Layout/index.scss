@@ -1,0 +1,24 @@
+@import '../../scss/index.scss';
+
+.screen-wrapper {
+    background: #faf9f8;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.screen {
+    margin: 0 16px;
+    width: calc(100% - 32px);
+    min-height: 400px;
+
+    @include mq($from: tablet) {
+        margin: 0 32px;
+        width: calc(100% - 64px);
+    }
+
+    @include mq($from: desk) {
+        margin: 0 auto;
+    }
+
+    max-width: 1240px;
+}
