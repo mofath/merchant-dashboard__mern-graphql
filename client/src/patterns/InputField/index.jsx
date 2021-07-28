@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-const InputField = ({ value, name, placeholder, type, onChange, className }) => (
-  <div className='form-group'>
+const InputField = ({
+  value,
+  name,
+  placeholder,
+  type,
+  onChange,
+  className,
+  ...props
+}) => (
+  <div className="form-group">
     <input
       type={type}
       value={value}
@@ -11,6 +19,7 @@ const InputField = ({ value, name, placeholder, type, onChange, className }) => 
       className={`input-field ${className}`}
       placeholder={placeholder}
       onChange={onChange}
+      {...props}
     />
   </div>
 );

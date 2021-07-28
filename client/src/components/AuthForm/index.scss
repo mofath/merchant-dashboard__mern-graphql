@@ -1,0 +1,40 @@
+.auth-from-wrapper {
+    width: 100%;
+}
+
+.auth-form__input {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background: #fff;
+    height: 30px;
+    text-indent: 6px;
+}
+
+.auth-form__submit-btn {
+    background: #000;
+    color: #fff;
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.auth-form__group {
+    position: relative;
+}
+
+.auth-form__forget-password-link {
+    text-decoration: none;
+    color: #7e7c7c;
+    font-family: 9px;
+    bottom: 8px;
+    padding-left: 5px;
+    position: absolute;
+    top: 40px;
+}
+
+.auth-form__group__submit {
+    display: flex;
+    justify-content: center;
+}
