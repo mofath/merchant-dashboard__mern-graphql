@@ -1,0 +1,46 @@
+.home-hero-section {
+    width: 100%;
+    margin: 30px 0 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    & > div {
+        flex: 1;
+    }
+}
+
+.home-hero-section__img {
+    width: 100%;
+}
+
+.home-hero-section__auth__headline {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.home-hero-section__auth {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-hero-section__actions {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10%;
+}
+
+.home-hero-section__actions__add-cta-btn {
+    width: 350px;
+    margin-bottom: 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.home-hero-section__actions__manage-cta-btn {
+    width: 350px;
+    background: #fff;
+    color: #000;
+    border-radius: 15px;
+}
