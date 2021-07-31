@@ -1,12 +1,19 @@
 import mongoose from 'mongoose';
-import { Db } from 'mongodb';
 import config from '../config';
+import logger from './logger';
 
-export default async (): Promise<Db> => {
+const loadMongoose = async () => {
   const connection = await mongoose.connect(config.databaseURL, {
-    useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true,
-  });
-  return connection.connection.db;
-};
+    // useUnifiedTopology: true,
+    // useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+
+  logger.info(`🛸️ Connected to MongoDB`)
+
+  return connection
+}
+
+export default loadMongoose;
+

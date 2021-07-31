@@ -20,7 +20,9 @@
     "outDir": "./build",
     "allowJs": true,
     "noEmit": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+
   },
   "include": [
     "./src/**/*"

@@ -1,7 +1,8 @@
 import { Container } from 'typedi';
 import LoggerInstance from './logger';
+import { DependencyInjectorLoaderProps } from '../types';
 
-export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
+const dependencyInjectorLoader = async ({ mongoConnection, models }: DependencyInjectorLoaderProps) => {
   try {
     models.forEach(m => {
       Container.set(m.name, m.model);
@@ -9,9 +10,10 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
 
     Container.set('mongoConnection', mongoConnection);
     Container.set('logger', LoggerInstance);
-
-} catch (e) {
-    LoggerInstance.error('🔥 Error on dependency injector loader: %o', e);
-    throw e;
+  } catch (error) {
+    LoggerInstance.error('🔥 Error on dependency injector loader: %o', error);
+    throw error;
   }
 };
+
+export default dependencyInjectorLoader;
