@@ -16,7 +16,7 @@ export default function AuthForm({ handleLogin, handleSignup }) {
   useEffect(() => {}, []);
 
   return (
-    <div className="auth-from">
+    <div className="auth-from-wrapper">
       {isLoginActive ? (
         <Login handleLogin={handleLogin} />
       ) : (

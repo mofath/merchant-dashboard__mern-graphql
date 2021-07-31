@@ -1,5 +1,5 @@
 .auth-from-wrapper {
-    width: 100%;
+    width: 350px;
 }
 
 .auth-form__input {
@@ -14,10 +14,12 @@
 .auth-form__submit-btn {
     background: #000;
     color: #fff;
-    width: 250px;
+    width: 200px;
     height: 30px;
     border-radius: 15px;
     margin-top: 30px;
+    border: none;
+    cursor: pointer;
 }
 
 .auth-form__group {

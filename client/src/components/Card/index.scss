@@ -1,0 +1,22 @@
+.card {
+    width: min-content;
+    background: transparent;
+}
+
+.card__details {
+    height: fit-content;
+    padding: 15px 10px;
+}
+
+.card__details__title {
+    font-size: 18px;
+    color: #393c45;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.card__details__desc {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+}
