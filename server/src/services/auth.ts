@@ -1,7 +1,6 @@
 import { Model } from 'mongoose';
 import { Service, Inject } from 'typedi';
 import passwordUtils from '../utils/password';
-import config from '../config';
 import { IUser, IUserInputDTO, IUserSignupResDTO } from '../types';
 
 @Service()
@@ -12,24 +11,49 @@ export default class AuthService {
         ) {
         }
 
-        async signup(userInputDTO: IUserInputDTO) {
+        async signup({ username, password }: IUserInputDTO) {
                 try {
-                        userInputDTO.password = await passwordUtils.hash(userInputDTO.password);
+                        password = await passwordUtils.hash(password);
 
-                        const existingUser = await this.UsersModel.findOne({
-                                username: userInputDTO.username
-                        })
+                        const existingUser = await this.UsersModel.findOne({ username })
 
                         if (existingUser)
-                                throw new Error('User with that username already exists')
+                                throw new Error('Username already exists')
 
-                        const user = new this.UsersModel(userInputDTO);
+                        const user = new this.UsersModel({ username, password });
                         await user.save();
 
-                        return user.toJSON();
+                        return {
+                                success: true,
+                                user: user.toJSON()
+                        }
                 }
                 catch (error) {
-                        this.Logger.info('Something went wrong: Service: auth.create', error);
+                        this.Logger.error('Something went wrong: AuthService: signup:', error);
+                        throw error;
+                }
+        }
+
+
+        async login({ username, password }: IUserInputDTO) {
+                try {
+                        const user = await this.UsersModel.findOne({ username })
+
+                        if (!user)
+                                throw new Error('User not exist');
+
+                        const passwordMatches = await passwordUtils.compare(password, user.password);                        
+
+                        if (!passwordMatches)
+                                throw new Error('Incorrect password');
+
+                        return {
+                                success: true,
+                                user: user.toJSON()
+                        }
+                }
+                catch (error) {
+                        this.Logger.error('Something went wrong: AuthService: login:', error);
                         throw error;
                 }
         }
