@@ -9,8 +9,15 @@ type DependencyInjectorLoaderProps = {
 
 interface IUser extends Document {
         id: string;
-        usetname: string;
+        username: string;
         password?: string;
 }
+export interface IUserInputDTO {
+        username: string;
+        password: string;
+}
 
+export interface IUserSignupResDTO {
+        username: string;
+}
 

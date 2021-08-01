@@ -9,6 +9,7 @@
       "./node_modules/@types",
       "./src/types"
     ],
+    "types": ["mocha", "node"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -29,6 +30,6 @@
   ],
   "exclude": [
     "node_modules",
-    "tests"
+    "test"
   ]
 }
