@@ -9,10 +9,11 @@
     "dev": "cross-env NODE_ENV=development nodemon",
     "inspect": "nodemon --inspect src/app.ts",
     "test": "TS_NODE_FILES=true mocha",
-    "lint": "npm run lint:js ",
+    "lint": "yarn run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
-    "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- --fix"
+    "lint:js": "yarn run lint:eslint src/",
+    "lint:fix": "yarn run lint:js -- --fix",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +31,6 @@
     "express": "^4.17.1",
     "global": "^4.4.0",
     "graphql": "^15.5.1",
-    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mocha": "^9.0.3",
     "mongodb": "^4.0.1",
@@ -41,6 +41,13 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.0.1",
+    "@graphql-codegen/introspection": "2.0.0",
+    "@graphql-codegen/typescript": "2.0.0",
+    "@graphql-codegen/typescript-resolvers": "2.0.0",
+    "@graphql-codegen/add": "^3.0.0",
+    "@graphql-codegen/schema-ast": "^2.0.0",
+    "@useoptic/express-middleware": "^0.0.5",
     "@types/mocha": "^9.0.0",
     "@types/mongoose": "^5.11.97",
     "mocha-junit-reporter": "^2.0.0",

@@ -1,0 +1,8 @@
+# Do not edit directly!
+type Mutation {
+  _empty: String
+}
+
+type Query {
+  test: String
+}
