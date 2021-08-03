@@ -19,6 +19,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@graphql-codegen/core": "^2.0.0",
+    "@graphql-codegen/flow": "^2.0.0",
+    "@graphql-codegen/flow-resolvers": "^2.0.0",
     "@useoptic/express-middleware": "^0.0.5",
     "apollo-server-express": "^2",
     "bcrypt": "^5.0.1",
@@ -41,15 +44,15 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^3.0.0",
     "@graphql-codegen/cli": "2.0.1",
     "@graphql-codegen/introspection": "2.0.0",
+    "@graphql-codegen/schema-ast": "^2.0.0",
     "@graphql-codegen/typescript": "2.0.0",
     "@graphql-codegen/typescript-resolvers": "2.0.0",
-    "@graphql-codegen/add": "^3.0.0",
-    "@graphql-codegen/schema-ast": "^2.0.0",
-    "@useoptic/express-middleware": "^0.0.5",
     "@types/mocha": "^9.0.0",
     "@types/mongoose": "^5.11.97",
+    "@useoptic/express-middleware": "^0.0.5",
     "mocha-junit-reporter": "^2.0.0",
     "mongodb-memory-server": "5.2.11",
     "nodemon": "^2.0.9",

@@ -1,11 +1,21 @@
 // Do not edit directly!
 export default `
+type AuthData {
+  user: User!
+  isAuthenticated: Boolean!
+}
+
 type Mutation {
-  _empty: String
+  signup(username: String!, password: String!): AuthData
 }
 
 type Query {
-  test: String
+  login(username: String!, password: String!): AuthData
+}
+
+type User {
+  id: ID!
+  username: String
 }
 
 `

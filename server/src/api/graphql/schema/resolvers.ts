@@ -1,10 +1,12 @@
-import { Resolvers } from '../generated/types';
+import {  AuthMutations, AuthQueries } from './Auth'
+import { Resolvers } from '../generated/types'
 
 const resolvers: Resolvers = {
-	Mutation: {
-	},
 	Query: {
-		test: () => 'hello'
+		...AuthQueries,
+	},
+	Mutation: {
+		...AuthMutations,
 	},
 }
 

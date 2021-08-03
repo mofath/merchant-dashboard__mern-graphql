@@ -1,0 +1,9 @@
+type User {
+  id: ID!
+  username: String
+}
+
+type AuthData {
+  user: User!
+  isAuthenticated: Boolean!
+}

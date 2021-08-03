@@ -7,6 +7,8 @@ generates:
       - add:
           content: '# Do not edit directly!'
       - schema-ast
+    config:
+      useFlowExactObjects: false
   ./src/api/graphql/generated/typeDefs.ts:
     plugins:
       - add:
@@ -23,5 +25,3 @@ generates:
       - typescript-resolvers
     config:
       enumsAsTypes: true
-      mappers:
-        User: ../../../types#IUser
