@@ -26,7 +26,7 @@ describe('Auth Service', () => {
 
         describe('signup', () => {
                 it('Should return the same user info with encrypted password', async () => {
-                        const { user } = await authService.signup(testUser);
+                        const user = await authService.signup(testUser);
 
                         expect(user).toBeTruthy();
                         expect(user.id).toBeTruthy();
@@ -41,7 +41,7 @@ describe('Auth Service', () => {
 
         describe('login', () => {
                 it('Should return the auth user', async () => {
-                        const { user } = await authService.login(testUser)
+                        const user = await authService.login(testUser)
 
                         expect(user).toBeTruthy();
                         expect(user.id).toBeTruthy();

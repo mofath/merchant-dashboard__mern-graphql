@@ -2,6 +2,7 @@ import { Model } from 'mongoose';
 import { Service, Inject } from 'typedi';
 import passwordUtils from '../utils/password';
 import { IUser, IUserInputDTO, IUserSignupResDTO } from '../types';
+import 'reflect-metadata';
 
 @Service()
 export default class AuthService {
@@ -23,10 +24,7 @@ export default class AuthService {
                         const user = new this.UsersModel({ username, password });
                         await user.save();
 
-                        return {
-                                success: true,
-                                user: user.toJSON()
-                        }
+                        return user.toJSON()
                 }
                 catch (error) {
                         this.Logger.error('Something went wrong: AuthService: signup:', error);
@@ -42,15 +40,12 @@ export default class AuthService {
                         if (!user)
                                 throw new Error('User not exist');
 
-                        const passwordMatches = await passwordUtils.compare(password, user.password);                        
+                        const passwordMatches = await passwordUtils.compare(password, user.password);
 
                         if (!passwordMatches)
                                 throw new Error('Incorrect password');
 
-                        return {
-                                success: true,
-                                user: user.toJSON()
-                        }
+                        return user.toJSON()
                 }
                 catch (error) {
                         this.Logger.error('Something went wrong: AuthService: login:', error);
@@ -58,3 +53,5 @@ export default class AuthService {
                 }
         }
 }
+
+
