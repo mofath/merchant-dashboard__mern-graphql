@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Login from './Login';
 import Signup from './Signup';
 import AuthFormToggler from './Toggler';
 import './index.scss';
-
-export default function AuthForm({ handleLogin, handleSignup }) {
+export default function AuthForm({ login, signup }) {
   const [isLoginActive, setIsLoginActive] = useState(true);
   const togglerRef = useRef(null);
 
@@ -13,15 +12,9 @@ export default function AuthForm({ handleLogin, handleSignup }) {
     setIsLoginActive(!isLoginActive);
   };
 
-  useEffect(() => {}, []);
-
   return (
-    <div className="auth-from-wrapper">
-      {isLoginActive ? (
-        <Login handleLogin={handleLogin} />
-      ) : (
-        <Signup handleSignup={handleSignup} />
-      )}
+    <div className='auth-from-wrapper'>
+      {isLoginActive ? <Login submit={login} /> : <Signup submit={signup} />}
       <AuthFormToggler
         current={isLoginActive ? 'Login' : 'Signup'}
         ref={togglerRef}
@@ -32,6 +25,6 @@ export default function AuthForm({ handleLogin, handleSignup }) {
 }
 
 AuthForm.propTypes = {
-  handleLogin: PropTypes.func,
-  handleSignup: PropTypes.func,
+  signup: PropTypes.func,
+  login: PropTypes.func,
 };

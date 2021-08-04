@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AuthForm from '../../components/AuthForm';
 import Headline from '../../patterns/Headline';
 import { heroImage } from '../../fixtures';
 import './index.scss';
 
-const LandingHeroSection = () => (
+const LandingHeroSection = ({ signup }) => (
   <section className='landing-hero-section'>
     <div className='landing-hero-section__auth'>
       <Headline
@@ -13,7 +14,7 @@ const LandingHeroSection = () => (
         alignmentDesktop='left'
         className='landing-hero-section__auth__headline'
       />
-      <AuthForm />
+      <AuthForm signup={signup} />
     </div>
     <div>
       <img
@@ -24,5 +25,10 @@ const LandingHeroSection = () => (
     </div>
   </section>
 );
+
+
+LandingHeroSection.propTypes = {
+  signup: PropTypes.func,
+}
 
 export default LandingHeroSection;

@@ -4,11 +4,11 @@ import InputField from '../../../patterns/InputField';
 import Button from '../../../patterns/Button';
 
 const INITIAL_VALUES = {
-  email: '',
+  username: '',
   password: '',
 };
 
-const Signup = (submit) => {
+const Signup = ({ submit }) => {
   const [values, setValues] = useState(INITIAL_VALUES);
 
   const handleInputChange = (event) => {
@@ -23,7 +23,8 @@ const Signup = (submit) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submit(values);
+    const { username, password } = values;
+    submit(username, password);
   };
 
   return (
@@ -31,19 +32,19 @@ const Signup = (submit) => {
       <div className='auth-form__group'>
         <InputField
           type='text'
-          className='auth-form__input'
-          placeholder='Email'
           name='username'
+          placeholder='Username'
           onChange={handleInputChange}
+          className='auth-form__input'
         />
       </div>
       <div className='auth-form__group'>
         <InputField
           type='password'
-          className='auth-form__input'
-          placeholder='Password'
           name='password'
+          placeholder='Password'
           onChange={handleInputChange}
+          className='auth-form__input'
         />
       </div>
       <div className='auth-form__group__submit'>
