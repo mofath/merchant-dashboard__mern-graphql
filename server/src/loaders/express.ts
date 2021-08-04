@@ -1,15 +1,21 @@
-import express, {Application } from 'express';
+import express, { Application } from 'express';
 import { Server } from 'http';
-import { ErrorHandlerMiddleware, NotFoundErrorMiddleWare } from '../api/middlewares/error';
-import { apolloServer } from '../api/graphql/apolloServer'
+import { apolloServer } from '../api/graphql/apolloServer';
+import { 
+  ErrorHandlerMiddleware, 
+  NotFoundErrorMiddleWare, 
+  CORSMiddleware 
+} from '../api/middlewares';
 
 type Props = { app: Application; server: Server }
-const expressLoader = async ({ app, server }: Props) => { 
+const expressLoader = async ({ app, server }: Props) => {
 
   app.use(express.json());
 
-  	// GraphQL API
-	apolloServer(app, server)
+  app.use(CORSMiddleware);
+
+  // GraphQL API
+  apolloServer(app, server)
 
   /// error handlers
   app.use(NotFoundErrorMiddleWare);

@@ -30,10 +30,10 @@ const Signup = (submit) => {
     <form onSubmit={handleSubmit} className='auth-form'>
       <div className='auth-form__group'>
         <InputField
-          type='email'
+          type='text'
           className='auth-form__input'
           placeholder='Email'
-          name='email'
+          name='username'
           onChange={handleInputChange}
         />
       </div>
