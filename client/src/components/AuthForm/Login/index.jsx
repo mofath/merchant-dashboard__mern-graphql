@@ -5,7 +5,7 @@ import InputField from '../../../patterns/InputField';
 import Button from '../../../patterns/Button';
 
 const INITIAL_VALUES = {
-  email: '',
+  username: '',
   password: '',
 };
 
@@ -24,36 +24,37 @@ const Login = ({ submit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submit(values);
+    const { username, password } = values;
+    submit(username, password);
   };
 
   return (
     <form onSubmit={handleSubmit} className='auth-form'>
       <div className='auth-form__group'>
         <InputField
-          type='email'
-          className='auth-form__input'
-          placeholder='Email'
-          name='email'
+          type='text'
+          name='username'
+          placeholder='Username'
           onChange={handleInputChange}
+          className='auth-form__input'
         />
       </div>
       <div className='auth-form__group'>
         <InputField
           type='password'
-          className='auth-form__input'
-          placeholder='password'
           name='password'
+          placeholder='password'
           onChange={handleInputChange}
+          className='auth-form__input'
         />
         <Link to='/' className='auth-form__forget-password-link'>
           Forget Password?
         </Link>
       </div>
       <div className='auth-form__group__submit'>
-      <Button type='submit' className='auth-form__submit-btn'>
-        Login
-      </Button>
+        <Button type='submit' className='auth-form__submit-btn'>
+          Login
+        </Button>
       </div>
     </form>
   );

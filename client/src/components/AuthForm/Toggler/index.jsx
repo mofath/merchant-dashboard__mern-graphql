@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-const AuthFormToggler = ({ current, onClick }, ref) => {
+const AuthFormToggler = forwardRef(({ current, onClick }, ref) => {
   return (
     <div ref={ref} className='auth-form-toggler__wrapper'>
       {current === 'Login' ? 'Dont\'t have an account?' : 'Already, have an account?'}
@@ -12,11 +12,13 @@ const AuthFormToggler = ({ current, onClick }, ref) => {
       </span>
     </div>
   );
-};
+});
 
 AuthFormToggler.propTypes = {
   current: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-export default forwardRef(AuthFormToggler);
+AuthFormToggler.displayName = 'AuthFormToggler';
+
+export default AuthFormToggler;

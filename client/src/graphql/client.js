@@ -37,10 +37,26 @@ const errorLink = onError(({ networkError, graphQLErrors }) => {
     }
 });
 
-const client = new ApolloClient({
-    link: ApolloLink.from([errorLink, httpLink]),
-    cache: new InMemoryCache(),
-    defaultOptions: defaultOptions
-});
+const GraphqlClient = (() => {
+    let instance = null;
 
-export default client;
+    const createInstance = () => {
+        instance = new ApolloClient({
+            link: ApolloLink.from([errorLink, httpLink]),
+            cache: new InMemoryCache(),
+            defaultOptions: defaultOptions
+        });
+        return instance;
+    };
+
+    return {
+        getInstance: () => {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
+
+export default GraphqlClient;

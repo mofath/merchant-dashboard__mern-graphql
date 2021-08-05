@@ -27,8 +27,8 @@ const InputField = ({
 InputField.propTypes = {
   value: PropTypes.string,
   id: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text', 'password', 'email', 'tel']).isRequired,
+  name: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'password', 'email', 'tel']),
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   className: PropTypes.string,
