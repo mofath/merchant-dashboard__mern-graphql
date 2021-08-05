@@ -1,0 +1,118 @@
+.footer {
+    background: #222;
+    color: #fff;
+    display: block;
+    height: 500px;
+}
+
+.footer__container {
+    display: grid;
+    grid-template: 'contactUs contactUs contactUs contactUs contactUs' 'contacts about placeholder subscribe subscribe';
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    grid-gap: 40px;
+    max-width: 1440px;
+    padding: 50px;
+}
+
+.footer__contact-us {
+    grid-area: contactUs;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.footer__contacts {
+    grid-area: contacts;
+    display: flex;
+    flex-direction: column;
+
+    &__info {
+        list-style: none;
+
+        &__item {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__social-media {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+
+        &__icon {
+            font-size: 18px;
+            color: #fff;
+
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+.footer__about {
+    grid-area: about;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    &__links-list {
+        list-style: none;
+    }
+
+    &__link {
+        font-size: 15px;
+        margin-bottom: 15px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+
+.footer__subscribe {
+    grid-area: subscribe;
+
+    &__text {
+        width: 60%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+
+        p {
+            width: 300px;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        width: 60%;
+
+        &__input {
+            color: #fff;
+            background: #333;
+            border-radius: 5px;
+            width: 300px;
+            flex-shrink: 1;
+            margin-right: 10px;
+            border: solid 1px #fff;
+            height: 40px;
+            padding: 0 8px;
+        }
+
+        &__submit-btn {
+            border-radius: 5px;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            height: 40px;
+            font-weight: 600;
+            padding: 5px 10px;
+        }
+    }
+}

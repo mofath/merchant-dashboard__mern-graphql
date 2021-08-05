@@ -6,15 +6,14 @@
     "node": true,
     "mocha": true
   },
-  "ignorePatterns": ["src/js/index.js"],
+  "ignorePatterns": ["src/index.js"],
   "plugins": ["react"],
   "rules": {
-    "quotes": [2, "single"],
-    "no-debugger": 0,
-    "no-console": 0,
-    "no-unused-vars": 0,
-    "react/display-name": 0,
-    "react/prop-types": 0,
-    "react/no-multi-comp": 0
+    "quotes": ["error", "single"],
+    "no-debugger": "error",
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "react/display-name": "warn",
+    "react/prop-types": "error"
   }
 }

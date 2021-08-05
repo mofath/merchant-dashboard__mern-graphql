@@ -1,0 +1,11 @@
+.input-field {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1;
+    text-align: left;
+
+    &:focus {
+        outline: none;
+    }
+}
